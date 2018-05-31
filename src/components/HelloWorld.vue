@@ -51,7 +51,6 @@ export default {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
             this.$router.replace({name: 'Index'})
           } else {
             console.log('error submit!!');

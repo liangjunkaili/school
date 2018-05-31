@@ -32,6 +32,7 @@ const router = new Router({
     },
     {
       path: '/settings',
+      name:'Settings',
       // 你也可以在顶级路由就配置命名视图
       component: UserSettings,
       children: [

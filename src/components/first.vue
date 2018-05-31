@@ -25,10 +25,10 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="currentPage4"
-      :page-sizes="[100, 200, 300, 400]"
-      :page-size="100"
+      :page-sizes="pageSizes"
+      :page-size="pageSize"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="400">
+      :total="totalNum">
     </el-pagination>
   </div>
 </div>
@@ -43,6 +43,9 @@ export default {
       currentPage2: 5,
       currentPage3: 5,
       currentPage4: 4,
+      pageSizes:[100,200,300,400],
+      pageSize:100,
+      totalNum:400,
       tableData: [{
         date: '2016-05-02',
         name: '王小虎',

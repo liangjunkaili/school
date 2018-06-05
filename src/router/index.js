@@ -2,11 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import First from '@/components/First'
-import Menu from '@/pages/Menu'
-import UserSettings from '@/pages/UserSettings'
-import UserEmailsSubscriptions from '@/pages/UserEmailsSubscriptions'
-import UserProfile from '@/pages/UserProfile'
-import UserProfilePreview from '@/pages/UserProfilePreview'
+import Index from '@/pages/index'
 import { error } from 'util';
 
 Vue.use(Router)
@@ -20,33 +16,14 @@ const router = new Router({
       component: HelloWorld
     },
     {
-      path: '/index',
-      name: 'Index',
-      component: Menu,
-      redirect: '/First',
-      children: [{
-        path: '/First',
-        name: 'First',
-        component: First
-      }]
+      path: '/First',
+      name: 'First',
+      component: First
     },
     {
-      path: '/settings',
-      name:'Settings',
-      // 你也可以在顶级路由就配置命名视图
-      component: UserSettings,
-      children: [
-        {
-        path: 'emails',
-        component: UserEmailsSubscriptions
-        },
-        {
-        path: 'profile',
-        components: {
-          default: UserProfile,
-          helper: UserProfilePreview
-        }
-      }]
+      path:'/Index',
+      name:'Index',
+      component:Index
     }
   ],
   scrollBehavior(to,from,savedPosition){

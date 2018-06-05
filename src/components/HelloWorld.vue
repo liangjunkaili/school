@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import {login} from '@/axios'
 export default {
   name: 'HelloWorld',
   data() {
@@ -49,8 +50,16 @@ export default {
     },
     methods: {
       submitForm(formName) {
+        let params = {
+          uid:'1111'
+        }
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            login(params).then(res =>{
+                console.info(res)
+            }).catch(e =>{
+                console.info(e)
+            })
             this.$router.replace({name: 'Index'})
           } else {
             console.log('error submit!!');
@@ -66,7 +75,7 @@ export default {
     width: 404px;
     position: absolute;
     top: 40%;
-    left: 40%;
+    left: 30%;
 }
 .login-btn{
   width: 304px;

@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <NavBar style="float:left;margin-top:80px;margin-left:-200px;"/>
+  <Menu/>
   <div class="first-table">
     <el-table :data="tableData">
       <el-table-column
@@ -34,7 +34,7 @@
 </div>
 </template>
 <script>
-import NavBar from '@/pages/NavBar';
+import Menu from '@/pages/menu';
 export default {
   name:'First',
   data () {
@@ -74,15 +74,13 @@ export default {
     }
   },
   components:{
-    NavBar
+    Menu
   }
 }
 </script>
 <style>
 .first-table{
-  width: 80%;
   float: right;
-  margin-top:80px;
+  width: 80%;
 }
-
 </style>

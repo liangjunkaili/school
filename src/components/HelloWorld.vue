@@ -2,10 +2,10 @@
   <div class="hello">
     <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
       <el-form-item prop="account">
-        <el-input type="text" v-model="ruleForm2.account" auto-complete="off" placeholder="账号"></el-input>
+        <el-input type="text" v-model="ruleForm2.mid" auto-complete="off" placeholder="账号"></el-input>
       </el-form-item>
       <el-form-item prop="pass">
-        <el-input type="password" v-model="ruleForm2.pass" auto-complete="off" placeholder="密码"></el-input>
+        <el-input type="password" v-model="ruleForm2.pwd" auto-complete="off" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm2')" class="login-btn">登录</el-button>
@@ -35,14 +35,14 @@ export default {
       };
       return {
         ruleForm2: {
-          pass: '',
-          account: ''
+          pwd: '',
+          mid: ''
         },
         rules2: {
-          pass: [
+          pwd: [
             { validator: validatePass, trigger: 'blur' }
           ],
-          account: [
+          mid: [
             { validator: validateAccount, trigger: 'blur' }
           ]
         }
@@ -50,13 +50,10 @@ export default {
     },
     methods: {
       submitForm(formName) {
-        let params = {
-          uid:'1111'
-        }
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            login(params).then(res =>{
-                console.info(res)
+            login(this.ruleForm2).then(res =>{
+                console.info("========="+JSON.stringify(res.data))
             }).catch(e =>{
                 console.info(e)
             })
